@@ -1,5 +1,22 @@
-@if (lineMachineService.machines$ | async; as machines) {
-    @for (machine of machines; track machine) {
-        <button>{{ machine.name }}</button>
-    }
-}
+<nav class="nav-menu">
+    <div class="nav-row">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Logo_B%C3%BChler_AG.svg/1200px-Logo_B%C3%BChler_AG.svg.png" alt="Logo" />
+        </div>
+        <div class="user-info">
+            <span>{{ currentDateTime | date: "short" }}</span>
+            <span>{{ userName }}</span>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="nav-row buttons">
+        @if (lineMachineService.machines$ | async; as machines) {
+            @for (machine of machines; track machine) {
+                <button class="machine-button">
+                    <span>{{ machine.name }}</span>
+                    <i class="material-icons">{{ machine.iconName }}</i>
+                </button>
+            }
+        }
+    </div>
+</nav>
