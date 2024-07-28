@@ -1,9 +1,9 @@
 export interface Machine {
     name: string;
     iconName: string;
-    state: MachineState;
+    status: MachineStatus;
 }
 
 const MACHINE_STATE_VALUES = ['running', 'alarm', 'warning'] as const;
 
-export type MachineState = (typeof MACHINE_STATE_VALUES)[number];
+export type MachineStatus = (typeof MACHINE_STATE_VALUES)[number];

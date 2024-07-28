@@ -15,40 +15,13 @@
     <div class="nav-row buttons">
         @if (lineMachineService.machines$ | async; as machines) {
             @for (machine of machines; track machine) {
-                @switch (machine.state) {
-                    @case ("running") {
-                        <button
-                            style="background-color: #dcdcdc"
-                            class="machine-button"
-                        >
-                            <span style="color: #313131">{{
-                                machine.name
-                            }}</span>
-
-                            <i style="color: #7fa723" class="material-icons"
-                                >settings_backup_restore</i
-                            >
-                        </button>
-                    }
-                    @case ("warning") {
-                        <button
-                            style="background-color: #ff9705; color: white"
-                            class="machine-button"
-                        >
-                            <span>{{ machine.name }}</span>
-                            <i class="material-icons">warning</i>
-                        </button>
-                    }
-                    @case ("alarm") {
-                        <button
-                            style="background-color: #fe3636; color: white"
-                            class="machine-button"
-                        >
-                            <span>{{ machine.name }}</span>
-                            <i class="material-icons">error_outline</i>
-                        </button>
-                    }
-                }
+                <button
+                    class="machine-button"
+                    [appMachineStatus]="machine.status"
+                >
+                    <span>{{ machine.name }}</span>
+                    <i class="material-icons status-icon"></i>
+                </button>
             }
         }
     </div>

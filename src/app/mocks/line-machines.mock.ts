@@ -4,21 +4,21 @@ export const LINE_MACHINES_MOCK: Machine[] = [
     {
         name: 'Scale',
         iconName: 'system_update_alt',
-        state: 'running',
+        status: 'running',
     },
     {
         name: 'Attacher',
         iconName: 'chrome_reader_mode',
-        state: 'alarm',
+        status: 'alarm',
     },
     {
         name: 'Packer',
         iconName: 'call_to_action',
-        state: 'running',
+        status: 'running',
     },
     {
         name: 'Closer',
         iconName: 'grid_on',
-        state: 'warning',
+        status: 'warning',
     },
 ];
