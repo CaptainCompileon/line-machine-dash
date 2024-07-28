@@ -15,13 +15,7 @@
     <div class="nav-row buttons">
         @if (lineMachineService.machines$ | async; as machines) {
             @for (machine of machines; track machine) {
-                <button
-                    class="machine-button"
-                    [appMachineStatus]="machine.status"
-                >
-                    <span>{{ machine.name }}</span>
-                    <i class="material-icons status-icon"></i>
-                </button>
+                <nav-menu-machine-button [machine]="machine"></nav-menu-machine-button>
             }
         }
     </div>

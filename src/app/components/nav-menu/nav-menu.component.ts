@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LineMachineService } from '../../services/line-machine.service';
 import { AsyncPipe, DatePipe } from '@angular/common';
-import { MachineStatusDirective } from '../../directives/machine-status.directive';
+import { NavMenuMachineButtonComponent } from "./nav-menu-machine-button/nav-menu-machine-button.component";
 
 @Component({
     standalone: true,
-    imports: [AsyncPipe, DatePipe, MachineStatusDirective],
+    imports: [AsyncPipe, DatePipe, NavMenuMachineButtonComponent],
     selector: 'nav-menu',
     templateUrl: 'nav-menu.component.html',
     styleUrl: './nav-menu.component.scss',
-    providers: [MachineStatusDirective],
 })
 export class NavMenuComponent implements OnInit {
     protected currentDateTime!: Date;
