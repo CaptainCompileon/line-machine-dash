@@ -1,4 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+html,
 body {
-    margin: auto;
+    height: 100%;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+
+    .row {
+        border: 1px dotted grey;
+    }
+
+    .row.header {
+        flex: 0 1 auto;
+    }
+
+    .row.content {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+
+
 }

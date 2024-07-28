@@ -1,0 +1,17 @@
+.machine-button {
+    background-color: #dcdcdc;
+    color: #000000;
+    border: none;
+    padding: 14px 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.machine-button i {
+    font-size: 20px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}

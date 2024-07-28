@@ -7,7 +7,9 @@
             />
         </div>
         <div class="user-info">
-            <span>{{ currentDateTime | date: "short" }}</span>
+            <span>{{ currentDateTime | date: "dd.MM.yyyy HH:MM" }}</span>
+        </div>
+        <div class="user-info">
             <span>{{ userName }}</span>
         </div>
     </div>
@@ -15,7 +17,9 @@
     <div class="nav-row buttons">
         @if (lineMachineService.machines$ | async; as machines) {
             @for (machine of machines; track machine) {
-                <nav-menu-machine-button [machine]="machine"></nav-menu-machine-button>
+                <nav-menu-machine-button
+                    [machine]="machine"
+                ></nav-menu-machine-button>
             }
         }
     </div>

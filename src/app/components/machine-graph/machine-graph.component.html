@@ -1,0 +1,19 @@
+<div class="graph">
+    @if (lineMachineService.machines$ | async; as machines) {
+        @for (machine of machines; track machine) {
+            <div class="machine-container">
+                <button
+                    class="machine-button"
+                    [appMachineStatus]="machine.status"
+                >
+                    <i class="material-icons machine-icon">{{
+                        machine.iconName
+                    }}</i>
+                    <span class="machine-name">{{ machine.name }}</span>
+                    <i class="material-icons status-icon"></i>
+                </button>
+                <div class="connection-line"></div>
+            </div>
+        }
+    }
+</div>

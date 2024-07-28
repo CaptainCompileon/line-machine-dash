@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { LineMachineService } from './services/line-machine.service';
+import { MachineStatusDirective } from './directives/machine-status.directive';
+import { AsyncPipe } from '@angular/common';
+import { MachineGraphComponent } from './components/machine-graph/machine-graph.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [NavMenuComponent],
+    imports: [NavMenuComponent, MachineGraphComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
 export class AppComponent {
     title = 'line-machine-dash';
+
+    constructor(protected lineMachineService: LineMachineService) {}
 }
