@@ -1,7 +1,10 @@
 <nav class="nav-menu">
     <div class="nav-row">
         <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Logo_B%C3%BChler_AG.svg/1200px-Logo_B%C3%BChler_AG.svg.png" alt="Logo" />
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Logo_B%C3%BChler_AG.svg/1200px-Logo_B%C3%BChler_AG.svg.png"
+                alt="Logo"
+            />
         </div>
         <div class="user-info">
             <span>{{ currentDateTime | date: "short" }}</span>
@@ -12,10 +15,40 @@
     <div class="nav-row buttons">
         @if (lineMachineService.machines$ | async; as machines) {
             @for (machine of machines; track machine) {
-                <button class="machine-button">
-                    <span>{{ machine.name }}</span>
-                    <i class="material-icons">{{ machine.iconName }}</i>
-                </button>
+                @switch (machine.state) {
+                    @case ("running") {
+                        <button
+                            style="background-color: #dcdcdc"
+                            class="machine-button"
+                        >
+                            <span style="color: #313131">{{
+                                machine.name
+                            }}</span>
+
+                            <i style="color: #7fa723" class="material-icons"
+                                >settings_backup_restore</i
+                            >
+                        </button>
+                    }
+                    @case ("warning") {
+                        <button
+                            style="background-color: #ff9705; color: white"
+                            class="machine-button"
+                        >
+                            <span>{{ machine.name }}</span>
+                            <i class="material-icons">warning</i>
+                        </button>
+                    }
+                    @case ("alarm") {
+                        <button
+                            style="background-color: #fe3636; color: white"
+                            class="machine-button"
+                        >
+                            <span>{{ machine.name }}</span>
+                            <i class="material-icons">error_outline</i>
+                        </button>
+                    }
+                }
             }
         }
     </div>
