@@ -6,7 +6,7 @@ import { MachineStatus } from '../types/app.types';
     standalone: true,
 })
 export class MachineStatusDirective implements OnInit {
-    @Input() appMachineStatus!: MachineStatus;
+    @Input({ required: true }) appMachineStatus!: MachineStatus;
 
     constructor(
         private el: ElementRef,
@@ -27,40 +27,40 @@ export class MachineStatusDirective implements OnInit {
 
         switch (this.appMachineStatus) {
             case 'running':
-                this.renderer.setStyle(button, 'background-color', '#dcdcdc');
-                this.renderer.setStyle(
-                    button.querySelector('span'),
-                    'color',
-                    '#313131',
-                );
-                if (!icon) {
-                    break;
-                }
-                this.renderer.setStyle(icon, 'color', '#7fa723');
-                this.renderer.setProperty(
-                    icon,
-                    'innerHTML',
-                    'settings_backup_restore',
-                );
+                this.setButtonStyle(button, '#dcdcdc', '#313131');
+                this.setIconStyle('settings_backup_restore', icon, '#7fa723');
                 break;
             case 'warning':
-                this.renderer.setStyle(button, 'background-color', '#ff9705');
-                this.renderer.setStyle(button, 'color', 'white');
-                if (!icon) {
-                    break;
-                }
-                this.renderer.setProperty(icon, 'innerHTML', 'warning');
+                this.setButtonStyle(button, '#ff9705', 'white');
+                this.setIconStyle('warning', icon);
                 break;
             case 'alarm':
-                this.renderer.setStyle(button, 'background-color', '#fe3636');
-                this.renderer.setStyle(button, 'color', 'white');
-                if (!icon) {
-                    break;
-                }
-                this.renderer.setProperty(icon, 'innerHTML', 'error_outline');
+                this.setButtonStyle(button, '#fe3636', 'white');
+                this.setIconStyle('error_outline', icon);
                 break;
             default:
                 break;
         }
+    }
+
+    private setButtonStyle(
+        button: HTMLElement,
+        backgroundColor: string,
+        textColor: string,
+    ): void {
+        this.renderer.setStyle(button, 'background-color', backgroundColor);
+        this.renderer.setStyle(button, 'color', textColor);
+    }
+
+    private setIconStyle(
+        iconName: string,
+        icon?: Element,
+        color?: string,
+    ): void {
+        if (!icon) return;
+        if (color) {
+            this.renderer.setStyle(icon, 'color', color);
+        }
+        this.renderer.setProperty(icon, 'innerHTML', iconName);
     }
 }

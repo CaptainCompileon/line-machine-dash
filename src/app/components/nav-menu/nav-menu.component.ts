@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LineMachineService } from '../../services/line-machine.service';
 import { AsyncPipe, DatePipe } from '@angular/common';
-import { NavMenuMachineButtonComponent } from "./nav-menu-machine-button/nav-menu-machine-button.component";
+import { NavMenuMachineButtonComponent } from './nav-menu-machine-button/nav-menu-machine-button.component';
 
 @Component({
     standalone: true,
@@ -12,7 +12,7 @@ import { NavMenuMachineButtonComponent } from "./nav-menu-machine-button/nav-men
 })
 export class NavMenuComponent implements OnInit {
     protected currentDateTime!: Date;
-    protected readonly userName: string = 'John Doe'; // Replace with actual user name
+    protected readonly userName: string = 'John Dudu';
 
     constructor(protected readonly lineMachineService: LineMachineService) {}
 

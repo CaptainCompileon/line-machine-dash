@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { LineMachineService } from './services/line-machine.service';
-import { MachineStatusDirective } from './directives/machine-status.directive';
-import { AsyncPipe } from '@angular/common';
 import { MachineGraphComponent } from './components/machine-graph/machine-graph.component';
 
 @Component({

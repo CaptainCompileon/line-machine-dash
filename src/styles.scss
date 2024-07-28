@@ -10,16 +10,13 @@ html,
 body {
     height: 100%;
     margin: 0;
+    background-color: white;
 }
 
 .main {
     display: flex;
     flex-flow: column;
     height: 100%;
-
-    .row {
-        border: 1px dotted grey;
-    }
 
     .row.header {
         flex: 0 1 auto;
@@ -30,6 +27,9 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+    }
+
+    machine-graph-button:last-child .connection-line {
+        display: none;
     }
 }
