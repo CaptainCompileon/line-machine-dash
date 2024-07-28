@@ -16,12 +16,6 @@
     height: 50px;
 }
 
-.user-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
 .buttons {
     display: flex;
     justify-content: flex-start;
@@ -32,4 +26,21 @@
     width: 100%;
     height: 5px;
     background-color: #00aa9d;
+}
+
+.user-info {
+    display: flex;
+    align-items: center; 
+    gap: 40px; 
+    padding: 0 20px;
+    font-weight: 600;
+  
+  div {
+    display: flex;
+    align-items: center;
+  }
+  
+  i {
+    margin-right: 8px;
+  }
 }

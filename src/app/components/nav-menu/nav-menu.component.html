@@ -7,10 +7,14 @@
             />
         </div>
         <div class="user-info">
-            <span>{{ currentDateTime | date: "dd.MM.yyyy HH:MM" }}</span>
-        </div>
-        <div class="user-info">
-            <span>{{ userName }}</span>
+            <div>
+                <i class="material-icons">schedule</i>
+                <span>{{ currentDateTime | date: "dd.MM.yyyy HH:MM" }}</span>
+            </div>
+            <div>
+                <i class="material-icons">face_4</i>
+                <span>{{ userName }}</span>
+            </div>
         </div>
     </div>
     <div class="divider"></div>
