@@ -1,1 +1,6 @@
-This is nav-menu
+@if (lineMachineService.machines$ | async; as machines) {
+    @for(machine of machines; track machine) {
+        <button>{{ machine.name }}</button>
+    }
+
+}
