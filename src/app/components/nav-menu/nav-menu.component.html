@@ -1,6 +1,5 @@
 @if (lineMachineService.machines$ | async; as machines) {
-    @for(machine of machines; track machine) {
+    @for (machine of machines; track machine) {
         <button>{{ machine.name }}</button>
     }
-
 }
